@@ -2,7 +2,24 @@ let SHEET_ID = "1Ec9omsrDd4pRp5dTizj56Q3hCEpMoWh5ejAzlHaYI2Y";
 let SHEET_NAME = "Players";
 let FULL_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_NAME}`;
 
-// Fonction pour afficher les joueurs par alliance
+// Fonction pour copier le texte dans le presse-papiers
+function copyToClipboard(text) {
+    navigator.clipboard
+        .writeText(text)
+        .then(() => {
+            console.log("Texte copié dans le presse-papiers :", text);
+            // Vous pouvez ajouter ici une notification ou un indicateur visuel pour informer l'utilisateur que le texte a été copié avec succès
+        })
+        .catch((error) => {
+            console.error(
+                "Erreur lors de la copie dans le presse-papiers :",
+                error
+            );
+            // Gérer l'erreur de copie dans le presse-papiers
+        });
+}
+
+// Afficher les joueurs par alliance
 function displayPlayers(playersByAlliance) {
     // Supprimer les anciens résultats
     document.querySelector("#alliances").innerHTML = "";
@@ -26,6 +43,11 @@ function displayPlayers(playersByAlliance) {
             let idCell = row.insertCell();
             usernameCell.textContent = player.username;
             idCell.textContent = player.id;
+
+            // Ajouter un gestionnaire d'événements click pour copier l'ID dans le presse-papiers
+            idCell.addEventListener("click", () => {
+                copyToClipboard(player.id);
+            });
         });
 
         document.querySelector("#alliances").appendChild(allianceTable);
