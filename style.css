@@ -1,7 +1,54 @@
 body {
-    background-color: black;
+    background-color: rgb(2 6 23);
 }
 
-span {
+input {
+    height: 30px;
+    text-align: center;
+    display: block;
+    min-width: 300px;
+    margin: 50px auto;
+    border-radius: 5px;
+}
+
+table {
     color: white;
+    font-family: "Open Sans", sans-serif;
+    margin: auto;
+    margin-bottom: 50px;
+    white-space: nowrap;
+}
+
+caption {
+    font-size: 25px;
+    padding-bottom: 5px;
+}
+
+caption:hover {
+    color: gold;
+    transition: 0.6s;
+    cursor: pointer;
+}
+
+tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    gap: 20px;
+}
+
+tr:hover {
+    color: gold;
+}
+
+td {
+    padding-bottom: 2px;
+}
+
+tbody {
+    margin: auto;
+}
+
+caption.active + tbody {
+    display: none;
 }
