@@ -97,7 +97,8 @@ fetch(FULL_URL)
                             player.username
                                 .toLowerCase()
                                 .includes(searchQuery) ||
-                            allianceName.toLowerCase().includes(searchQuery)
+                            allianceName.toLowerCase().includes(searchQuery) ||
+                            player.id.toLowerCase().includes(searchQuery)
                         );
                     });
                     if (filteredPlayers.length > 0) {
