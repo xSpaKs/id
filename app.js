@@ -45,7 +45,7 @@ function displayPlayers(playersByAlliance) {
             idCell.textContent = player.id;
 
             // Ajouter un gestionnaire d'événements click pour copier l'ID dans le presse-papiers
-            idCell.addEventListener("click", () => {
+            row.addEventListener("click", () => {
                 copyToClipboard(player.id);
             });
         });
